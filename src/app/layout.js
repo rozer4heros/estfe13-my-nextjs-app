@@ -1,3 +1,6 @@
+// "use client";
+// import { useEffect, useState } from "react";
+
 import Link from "next/link";
 import Script from "next/script";
 
@@ -9,8 +12,21 @@ export const metadata = {
   description: "웹페이지 구현하기",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
   console.log("공통 레이아웃 작동");
+  /*
+  const [topics, setTopics] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:9999/topics")
+      .then((response) => response.json())
+      .then((result) => {
+        setTopics(result);
+      });
+  }, []);
+  */
+  const response = await fetch("http://localhost:9999/topics");
+  const topics = await response.json();
+  console.log(topics); // { id, title, message }
 
   return (
     <html
@@ -27,21 +43,13 @@ export default function RootLayout({ children }) {
               </Link>
             </h1>
             <ul className="nav d-flex">
-              <li className="nav-item">
-                <Link className="nav-link" href="/read/1">
-                  HTML
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" href="/read/2">
-                  CSS
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" href="/read/3">
-                  JavaScript
-                </Link>
-              </li>
+              {topics.map((t) => (
+                <li key={t.id} className="nav-item">
+                  <Link className="nav-link" href={`/read/${t.id}`}>
+                    {t.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </nav>
