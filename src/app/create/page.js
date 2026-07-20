@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
-import styles from "./create.module.css";
+import styles from "./page.module.css";
 
 export default function Create() {
   const router = useRouter();
