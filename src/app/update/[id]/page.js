@@ -3,8 +3,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 
-import styles from "./create.module.css";
-
 export default function Update() {
   const router = useRouter();
   const { id } = useParams();

@@ -2,6 +2,8 @@
 
 import { useRouter } from "next/navigation";
 
+import styles from "./create.module.css";
+
 export default function Create() {
   const router = useRouter();
 
@@ -53,9 +55,3 @@ export default function Create() {
     </>
   );
 }
-
-const styles = {
-  title: {
-    color: "green",
-  },
-};
