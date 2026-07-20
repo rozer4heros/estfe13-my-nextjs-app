@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 
-import styles from "./page.module.css";
+import styles from "../../page.module.css";
 
 export default function Update() {
   const router = useRouter();
