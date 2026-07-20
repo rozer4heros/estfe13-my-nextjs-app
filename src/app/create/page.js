@@ -9,7 +9,7 @@ export default function Create() {
 
   return (
     <>
-      <h2 style={styles.title}>Create Form</h2>
+      <h2 className={styles.title}>Create Form</h2>
       <form
         onSubmit={(e) => {
           e.preventDefault();

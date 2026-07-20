@@ -22,7 +22,7 @@ export default function Update() {
 
   return (
     <>
-      <h2 style={styles.title}>Update Form</h2>
+      <h2 className={styles.title}>Update Form</h2>
       <form
         onSubmit={(e) => {
           e.preventDefault();
