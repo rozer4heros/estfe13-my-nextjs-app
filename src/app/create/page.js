@@ -1,7 +1,10 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 export default function Create() {
   console.log("Create 페이지 작동");
+  const router = useRouter();
 
   return (
     <>
@@ -11,6 +14,19 @@ export default function Create() {
           e.preventDefault();
           const title = e.target.title.value;
           const message = e.target.message.value;
+          const options = {
+            method: "POST",
+            headers: {
+              "Content-type": "application/json",
+            },
+            body: JSON.stringify({ title, message }),
+          };
+          fetch("http://localhost:9999/topics", options)
+            .then((response) => response.json())
+            .then((result) => {
+              router.push(`/read/${result.id}`);
+              router.refresh();
+            });
         }}
       >
         <div className="mb-3">
