@@ -3,12 +3,11 @@
 import { useRouter } from "next/navigation";
 
 export default function Create() {
-  console.log("Create 페이지 작동");
   const router = useRouter();
 
   return (
     <>
-      <h3 style={styles.title}>Create Form</h3>
+      <h2 style={styles.title}>Create Form</h2>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -39,7 +38,13 @@ export default function Create() {
           <label htmlFor="message" className="form-label">
             Message
           </label>
-          <textarea name="message" className="form-control" id="message" rows="3"></textarea>
+          <textarea
+            name="message"
+            placeholder="글 내용을 작성해주세요"
+            className="form-control"
+            id="message"
+            rows="3"
+          ></textarea>
         </div>
         <button type="submit" className="btn btn-primary">
           입력
