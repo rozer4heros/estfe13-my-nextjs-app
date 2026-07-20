@@ -1,12 +1,12 @@
 export default async function Read(props) {
   const { id } = await props.params;
-
-  console.log("Read 페이지 작동");
+  const response = await fetch(`http://localhost:9999/topics/${id}`);
+  const data = await response.json(); // { id, title, message }
 
   return (
     <>
-      <h2>Read</h2>
-      <p>parameter:{id}</p>
+      <h2>{data.title}</h2>
+      <p>{data.message}</p>
     </>
   );
 }

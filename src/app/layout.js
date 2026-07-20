@@ -15,6 +15,8 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   console.log("공통 레이아웃 작동");
   /*
+  CLIENT COMPONENT EXCLUSIVE
+  
   const [topics, setTopics] = useState([]);
   useEffect(() => {
     fetch("http://localhost:9999/topics")
