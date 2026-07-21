@@ -10,7 +10,7 @@ export default function Controls({}) {
   const handleDelete = () => {
     if (!window.confirm("정말 삭제할까요?")) return;
 
-    fetch(`http://localhost:9999/topics/${id}`, { method: "DELETE" })
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/topics/${id}`, { method: "DELETE" })
       .then((res) => res.json())
       .then((result) => {
         router.push("/");

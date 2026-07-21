@@ -12,7 +12,7 @@ export default function Update() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:9999/topics/${id}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/topics/${id}`)
       .then((res) => res.json())
       .then((result) => {
         setTitle(result.title);
@@ -37,10 +37,11 @@ export default function Update() {
               message,
             }),
           };
-          fetch(`http://localhost:9999/topics/${id}`, options)
+          fetch(`${process.env.NEXT_PUBLIC_API_URL}/topics/${id}`, options)
             .then((response) => response.json())
             .then((result) => {
               router.push(`/read/${id}`);
+              router.refresh();
             });
         }}
       >

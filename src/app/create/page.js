@@ -22,7 +22,7 @@ export default function Create() {
             },
             body: JSON.stringify({ title, message }),
           };
-          fetch("http://localhost:9999/topics", options)
+          fetch(`${process.env.NEXT_PUBLIC_API_URL}/topics`, options)
             .then((response) => response.json())
             .then((result) => {
               router.push(`/read/${result.id}`);

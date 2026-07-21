@@ -13,7 +13,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   console.log("공통 레이아웃 작동");
-  const response = await fetch("http://localhost:9999/topics", { next: { revalidate: 0 } });
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/topics`, { next: { revalidate: 0 } });
   const topics = await response.json();
   console.log(topics); // { id, title, message }
 
